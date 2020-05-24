@@ -55,22 +55,19 @@ def have_common_letters(prepared_string_1, prepared_string_2):
 
 def is_mackerel(test_word):
     result = False
-    common_letter_states = 0
     no_common_letter_states = 0
     no_common_letter_first_state = ''
     str = ''
     prepared_test_word = str.join(sorted(set(test_word.lower().replace(' ', ''))))
     for prepared_state_name in PREPARED_STATE_NAMES.keys():
-        if have_common_letters(prepared_test_word, prepared_state_name):
-            common_letter_states += 1
-        else:
+        if not have_common_letters(prepared_test_word, prepared_state_name):
             no_common_letter_states += 1
             if no_common_letter_states == 1:
                 no_common_letter_first_state = PREPARED_STATE_NAMES[prepared_state_name][0]
             else:
                 break
 
-    if no_common_letter_states == 1 and common_letter_states == 49:
+    if no_common_letter_states == 1:
         result = True
         print('MACKEREL:')
         print(test_word + ' / ' + no_common_letter_first_state)
