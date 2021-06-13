@@ -155,7 +155,7 @@ def main():
                             best_score = new_score
                             print()
                             print('new best')
-                            print('score = ', best_score)
+                            print('score = ', best_score, '(proportion of lower 48 =', 100 * best_score / TOTAL_48_AREA, '%)')
                             print('group =', str(this_group))
                             for subgroup in contiguous_subgroups:
                                 print('  ', str(subgroup))
